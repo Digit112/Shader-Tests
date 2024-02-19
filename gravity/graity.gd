@@ -40,8 +40,8 @@ func _ready():
 		positions.append(randf_range(0, 1))
 		positions.append(randf_range(0, 1))
 		
-		velocities.append(0)
-		velocities.append(0)
+		velocities.append(randf_range(-0.2, 0.2))
+		velocities.append(randf_range(-0.2, 0.2))
 	
 	positions_byt = positions.to_byte_array()
 	velocities_byt = velocities.to_byte_array()

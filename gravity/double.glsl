@@ -17,7 +17,7 @@ velocities;
 
 void main() {
 	// Gravitational constant
-	float Grav = 0.05;
+	float Grav = 0.02;
 	
     // gl_GlobalInvocationID.x uniquely identifies this invocation across all work groups
 	uint offset = gl_GlobalInvocationID.x*2;
@@ -39,8 +39,8 @@ void main() {
 				float force = min(Grav / sqr_dis, 0.5);
 				
 				// Apply acceleration due to gravity.
-				velocities.data[offset  ] += dx / dis * force * 0.0167;
-				velocities.data[offset+1] += dy / dis * force * 0.0167;
+				velocities.data[offset  ] += (dx / dis * force - (positions.data[offset  ] - 0.5) / 50) * 0.0167;
+				velocities.data[offset+1] += (dy / dis * force - (positions.data[offset+1] - 0.5) / 50) * 0.0167;
 			}
 		}
 	}
