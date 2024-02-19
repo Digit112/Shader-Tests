@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://bf2f5ffkyevt6"]
+
+[ext_resource type="Shader" path="res://kaleidoscope/kaleidoscope.gdshader" id="1_76dwh"]
+[ext_resource type="Texture2D" uid="uid://dsf3jf7ouqene" path="res://kaleidoscope/cuty_1.png" id="2_dej2a"]
+[ext_resource type="Script" path="res://kaleidoscope/kaleidoscope_demo.gd" id="3_8nmau"]
+[ext_resource type="Texture2D" uid="uid://do0g3epuiwrgg" path="res://kaleidoscope/cuty_2.png" id="4_vujt7"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_j3hog"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i3kld"]
+render_priority = 0
+shader = ExtResource("1_76dwh")
+shader_parameter/num_tiles = 3.0
+shader_parameter/theta = 5.40867
+shader_parameter/base = ExtResource("2_dej2a")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.13948, 0, 0, 0, 3.13948, 0, 0, 0, 0.985732, 0, 0, 0)
+mesh = SubResource("QuadMesh_j3hog")
+surface_material_override/0 = SubResource("ShaderMaterial_i3kld")
+script = ExtResource("3_8nmau")
+timer = 2.58245
+tex1 = ExtResource("2_dej2a")
+tex2 = ExtResource("4_vujt7")
