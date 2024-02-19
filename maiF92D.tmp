@@ -1,23 +1,23 @@
 [gd_scene load_steps=5 format=3 uid="uid://bf2f5ffkyevt6"]
 
-[ext_resource type="Shader" path="res://conway_gol/conway.gdshader" id="1_3molv"]
-[ext_resource type="Script" path="res://conway_gol/conway.gd" id="2_h1t0q"]
+[ext_resource type="Shader" path="res://gravity/gravity.gdshader" id="1_nmrnk"]
+[ext_resource type="Script" path="res://conway gol/conway.gd" id="2_h1t0q"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_bn525"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d3xkk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7lnsn"]
 render_priority = 0
-shader = ExtResource("1_3molv")
-shader_parameter/grid = null
+shader = ExtResource("1_nmrnk")
+shader_parameter/positions = null
 
 [node name="Node3D" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("QuadMesh_bn525")
-surface_material_override/0 = SubResource("ShaderMaterial_d3xkk")
+surface_material_override/0 = SubResource("ShaderMaterial_7lnsn")
 script = ExtResource("2_h1t0q")
-grid_width = 40
-grid_height = 40
+grid_width = 12
+grid_height = 12
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.999435)

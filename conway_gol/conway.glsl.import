@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://ekq0gpecj55n"
+path="res://.godot/imported/conway.glsl-5fe0b41987e4ecb09fd24d430f852110.res"
+
+[deps]
+
+source_file="res://conway_gol/conway.glsl"
+dest_files=["res://.godot/imported/conway.glsl-5fe0b41987e4ecb09fd24d430f852110.res"]
+
+[params]
+

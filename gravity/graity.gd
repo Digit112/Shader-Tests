@@ -1,10 +1,10 @@
 extends MeshInstance3D
 
 # Acquire a rendering device and compile the glsl code for it.
-var rd = RenderingServer.create_local_rendering_device()
-var compute_file = load("res://gravity/double.glsl")
-var shader_spirv : RDShaderSPIRV = compute_file.get_spirv()
-var compute_comp = rd.shader_create_from_spirv(shader_spirv)
+var rd : RenderingDevice
+@onready var compute_file : RDShaderFile = load("res://gravity/gravity.glsl")
+var shader_spirv : RDShaderSPIRV
+var compute_comp : RID
 
 # Will be used for storing vertex positions.
 var positions : PackedFloat32Array
@@ -31,6 +31,15 @@ var my_mat : ShaderMaterial
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	my_mat = get_surface_override_material(0)
+	
+	rd = RenderingServer.create_local_rendering_device()
+	shader_spirv = compute_file.get_spirv()
+	compute_comp = rd.shader_create_from_spirv(shader_spirv)
+	
+	# Debug
+	print("Running compute kernel on: " + rd.get_device_vendor_name() + ": " + rd.get_device_name())
+	print("Compilation report: " + str(compute_file.base_error))
+	print("Bytecode report: " + str(shader_spirv.compile_error_compute))
 	
 	# Initialize data
 	positions = PackedFloat32Array()
@@ -79,10 +88,10 @@ func submit_kernel_job():
 func sync_kernel_job():
 	rd.sync()
 	
-	velocities_byt = rd.buffer_get_data(velocities_buf)
-	
 	# Read back the data from the buffer
+	velocities_byt = rd.buffer_get_data(velocities_buf)
 	positions_byt = rd.buffer_get_data(positions_buf)
+	
 	positions = positions_byt.to_float32_array()
 
 func _physics_process(_delta):
