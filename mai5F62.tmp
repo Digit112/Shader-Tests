@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://bf2f5ffkyevt6"]
+
+[ext_resource type="Shader" path="res://kaleidoscope/kaleidoscope.gdshader" id="1_76dwh"]
+[ext_resource type="Texture2D" uid="uid://dsf3jf7ouqene" path="res://kaleidoscope/cuty_1.png" id="2_dej2a"]
+[ext_resource type="Script" path="res://gravity/graity.gd" id="3_gqjpi"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_bn525"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i3kld"]
+render_priority = 0
+shader = ExtResource("1_76dwh")
+shader_parameter/num_tiles = 3.0
+shader_parameter/theta = 5.40867
+shader_parameter/base = ExtResource("2_dej2a")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_bn525")
+surface_material_override/0 = SubResource("ShaderMaterial_i3kld")
+script = ExtResource("3_gqjpi")

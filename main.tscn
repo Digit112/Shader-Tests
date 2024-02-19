@@ -1,26 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://bf2f5ffkyevt6"]
+[gd_scene load_steps=5 format=3 uid="uid://bf2f5ffkyevt6"]
 
-[ext_resource type="Shader" path="res://kaleidoscope/kaleidoscope.gdshader" id="1_76dwh"]
-[ext_resource type="Texture2D" uid="uid://dsf3jf7ouqene" path="res://kaleidoscope/cuty_1.png" id="2_dej2a"]
-[ext_resource type="Script" path="res://kaleidoscope/kaleidoscope_demo.gd" id="3_8nmau"]
-[ext_resource type="Texture2D" uid="uid://do0g3epuiwrgg" path="res://kaleidoscope/cuty_2.png" id="4_vujt7"]
+[ext_resource type="Shader" path="res://gravity/gravity.gdshader" id="1_nmrnk"]
+[ext_resource type="Script" path="res://gravity/graity.gd" id="3_gqjpi"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_j3hog"]
+[sub_resource type="QuadMesh" id="QuadMesh_bn525"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_i3kld"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7lnsn"]
 render_priority = 0
-shader = ExtResource("1_76dwh")
-shader_parameter/num_tiles = 3.0
-shader_parameter/theta = 5.40867
-shader_parameter/base = ExtResource("2_dej2a")
+shader = ExtResource("1_nmrnk")
+shader_parameter/positions = null
 
 [node name="Node3D" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(3.13948, 0, 0, 0, 3.13948, 0, 0, 0, 0.985732, 0, 0, 0)
-mesh = SubResource("QuadMesh_j3hog")
-surface_material_override/0 = SubResource("ShaderMaterial_i3kld")
-script = ExtResource("3_8nmau")
-timer = 2.58245
-tex1 = ExtResource("2_dej2a")
-tex2 = ExtResource("4_vujt7")
+mesh = SubResource("QuadMesh_bn525")
+surface_material_override/0 = SubResource("ShaderMaterial_7lnsn")
+script = ExtResource("3_gqjpi")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.999435)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.93741, -7.45058e-09, -0.348229, -0.0766397, 0.975481, -0.206309, 0.33969, 0.220085, 0.914425, 0, 0, 0)

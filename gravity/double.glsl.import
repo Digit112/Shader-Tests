@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://chy4bp4rss1xn"
+path="res://.godot/imported/double.glsl-665b237eab9c8896b057046191bb86cd.res"
+
+[deps]
+
+source_file="res://gravity/double.glsl"
+dest_files=["res://.godot/imported/double.glsl-665b237eab9c8896b057046191bb86cd.res"]
+
+[params]
+
