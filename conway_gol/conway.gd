@@ -103,17 +103,16 @@ func _physics_process(delta):
 	
 	if timer > 0.5:
 		timer -= 0.5
-		
-		var dbg : String
-		
-		dbg = ""
-		for y in range(grid_height):
-			for x in range(grid_width):
-				dbg = dbg + str(grid[y*grid_width + x])
-			dbg = dbg + "\n"
-		print(dbg)
-		
-		print("Job...")
+		#var dbg : String
+
+		#dbg = ""
+		#for y in range(grid_height):
+			#for x in range(grid_width):
+				#dbg = dbg + str(grid[y*grid_width + x])
+			#dbg = dbg + "\n"
+		#print(dbg)
+		#
+		#print("Job...")
 		submit_kernel_job()
 		sync_kernel_job()
 		my_mat.set_shader_parameter("grid", grid)
