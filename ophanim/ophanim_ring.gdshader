@@ -114,6 +114,9 @@ void fragment() {
 			smth = mod(renorm[0], palette_mul) / palette_mul;
 			ALBEDO = hsv2rgb(vec3(smth, saturation, value));
 			
+			METALLIC = 0.4;
+			ROUGHNESS = 0.4;
+			
 			// Check whether the normal exists.
 			if (escaped_at[1] != -1 && escaped_at[2] != -1) {
 				renorm[1] = float(escaped_at[1]) + 1.0 - log(log(escaping_rad[1])) / log(2);

@@ -20,8 +20,8 @@ func _process(delta):
 	var sth = sin(theta)
 	
 	mat.set_shader_parameter("C", Vector2(
-		0.5*cth,
-		0.5*sth
+		0.6*cth,
+		0.6*sth
 	))
 
 	rotate_object_local(Vector3(1, 0, 0), delta / 8 * 2 * PI)
