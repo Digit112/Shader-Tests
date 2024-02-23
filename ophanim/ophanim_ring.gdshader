@@ -15,6 +15,9 @@ uniform uint num_iters;
 // Causes the palette (a rainbow) to repeat more frequently.
 uniform float palette_mul;
 
+// Offsets the palette.
+uniform float palette_add;
+
 uniform float saturation;
 uniform float value;
 
@@ -111,7 +114,7 @@ void fragment() {
 			float smth;
 			
 			renorm[0] = float(escaped_at[0]) + 1.0 - log(log(escaping_rad[0])) / log(2);
-			smth = mod(renorm[0], palette_mul) / palette_mul;
+			smth = mod(renorm[0], palette_mul) / palette_mul + palette_add;
 			ALBEDO = hsv2rgb(vec3(smth, saturation, value));
 			
 			METALLIC = 0.4;
