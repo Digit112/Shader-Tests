@@ -34,12 +34,6 @@ uniform sampler2D tex;
 
 uniform vec2 C;
 
-// Vector added to UV before apply transforms below
-uniform vec2 UV_add;
-
-// Vector multiplied (piecie-wise) by UV before applying transforms below.
-uniform vec2 UV_mul;
-
 // Transformation matrix from UV space to complex space.
 uniform vec2 UV_to_Z_x;
 uniform vec2 UV_to_Z_y;
@@ -68,16 +62,14 @@ void fragment() {
 	int escaped_at[3] = {-1, -1, -1};
 	float escaping_rad[3];
 	
-	vec2 my_UV = UV*UV_mul + UV_add;
-	
 	float theta = UV.y / 13.0 * 2.0 * 3.14159;
 	float cth = cos(theta);
 	float sth = sin(theta);
 	
 	for (int s = 0; s < 3; s++) {
 		vec2 Z = vec2(
-			UV_to_Z_x.x*mod(my_UV.x, 1) + UV_to_Z_y.x*mod(my_UV.y, 1) + UV_to_Z_o.x,
-			UV_to_Z_x.y*mod(my_UV.x, 1) + UV_to_Z_y.y*mod(my_UV.y, 1) + UV_to_Z_o.y
+			UV_to_Z_x.x*mod(UV.x, 1) + UV_to_Z_y.x*mod(UV.y, 1) + UV_to_Z_o.x,
+			UV_to_Z_x.y*mod(UV.x, 1) + UV_to_Z_y.y*mod(UV.y, 1) + UV_to_Z_o.y
 		);
 		
 		vec2 my_C = vec2(
@@ -107,7 +99,7 @@ void fragment() {
 		}
 		
 		if (escaped_at[0] == -1) {
-			ALBEDO = texture(tex, my_UV).xyz;
+			ALBEDO = texture(tex, UV).xyz;
 		}
 		else {
 			float renorm[3];

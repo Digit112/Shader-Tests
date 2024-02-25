@@ -23,6 +23,6 @@ func _process(delta):
 		0.62*cth,
 		0.62*sth
 	))
-	mat.set_shader_parameter("palette_add", timer / 3)
+	mat.set_shader_parameter("palette_add", timer / 2)
 
 	rotate_object_local(Vector3(1, 0, 0), delta / 8 * 2 * PI)

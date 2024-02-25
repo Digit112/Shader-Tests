@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://drd41a06usthp"]
+
+[ext_resource type="PackedScene" uid="uid://b7uckher14ud7" path="res://merkabah/tetra_intersect.glb" id="1_xvl1a"]
+[ext_resource type="Script" path="res://merkabah/tetra_intersect.gd" id="2_f6ym4"]
+[ext_resource type="Shader" path="res://merkabah/merkabah.gdshader" id="3_4rvmm"]
+[ext_resource type="PackedScene" uid="uid://7yavu1521rok" path="res://merkabah/equilateral_tetrahedron.glb" id="3_oba1o"]
+[ext_resource type="Script" path="res://merkabah/match_rotation.gd" id="4_4rr8t"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_18j8t"]
+_surfaces = [{
+"aabb": AABB(-0.213689, 0, -0.21379, 0.398837, 0.816507, 0.39557),
+"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray(6, 0, 0, 0, 12, 0, 8, 0, 16, 0, 19, 0, 14, 0, 1, 0, 18, 0, 11, 0, 4, 0, 15, 0, 17, 0, 5, 0, 23, 0, 10, 0, 13, 0, 21, 0, 6, 0, 12, 0, 9, 0, 8, 0, 19, 0, 2, 0, 14, 0, 18, 0, 22, 0, 11, 0, 15, 0, 7, 0, 17, 0, 23, 0, 20, 0, 10, 0, 21, 0, 3, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 236, 5, 81, 63, 0, 0, 0, 0, 0, 0, 0, 0, 236, 5, 81, 63, 0, 0, 0, 0, 0, 0, 0, 0, 236, 5, 81, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 121, 159, 3, 63, 185, 235, 90, 190, 0, 0, 0, 0, 121, 159, 3, 63, 185, 235, 90, 190, 0, 0, 0, 0, 121, 159, 3, 63, 185, 235, 90, 190, 86, 209, 90, 190, 230, 204, 154, 62, 30, 246, 214, 59, 86, 209, 90, 190, 230, 204, 154, 62, 30, 246, 214, 59, 86, 209, 90, 190, 230, 204, 154, 62, 30, 246, 214, 59, 74, 151, 61, 190, 121, 159, 3, 63, 185, 235, 218, 61, 74, 151, 61, 190, 121, 159, 3, 63, 185, 235, 218, 61, 74, 151, 61, 190, 121, 159, 3, 63, 185, 235, 218, 61, 191, 46, 207, 61, 231, 204, 154, 62, 72, 220, 64, 190, 191, 46, 207, 61, 231, 204, 154, 62, 72, 220, 64, 190, 191, 46, 207, 61, 231, 204, 154, 62, 72, 220, 64, 190, 75, 151, 61, 62, 120, 159, 3, 63, 186, 235, 218, 61, 75, 151, 61, 62, 120, 159, 3, 63, 186, 235, 218, 61, 75, 151, 61, 62, 120, 159, 3, 63, 186, 235, 218, 61, 239, 115, 230, 61, 231, 204, 154, 62, 151, 36, 58, 62, 239, 115, 230, 61, 231, 204, 154, 62, 151, 36, 58, 62, 239, 115, 230, 61, 231, 204, 154, 62, 151, 36, 58, 62, 31, 42, 21, 218, 114, 149, 198, 224, 255, 127, 112, 161, 254, 255, 255, 63, 182, 213, 19, 218, 110, 190, 184, 138, 82, 90, 8, 86, 220, 198, 72, 71, 31, 33, 128, 0, 157, 251, 32, 190, 36, 166, 97, 85, 236, 240, 255, 34, 31, 42, 21, 218, 114, 149, 198, 224, 31, 33, 128, 0, 157, 251, 32, 190, 182, 213, 19, 218, 110, 190, 184, 138, 31, 42, 21, 218, 114, 149, 198, 224, 82, 90, 8, 86, 220, 198, 72, 71, 31, 33, 128, 0, 157, 251, 32, 190, 31, 42, 21, 218, 114, 149, 198, 224, 82, 90, 8, 86, 220, 198, 72, 71, 255, 127, 112, 161, 254, 255, 255, 63, 31, 33, 128, 0, 157, 251, 32, 190, 182, 213, 19, 218, 110, 190, 184, 138, 36, 166, 97, 85, 236, 240, 255, 34, 255, 127, 112, 161, 254, 255, 255, 63, 182, 213, 19, 218, 110, 190, 184, 138, 36, 166, 97, 85, 236, 240, 255, 34, 82, 90, 8, 86, 220, 198, 72, 71, 255, 127, 112, 161, 254, 255, 255, 63, 36, 166, 97, 85, 236, 240, 255, 34)
+}]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_uy7a0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qq3de"]
+render_priority = 0
+shader = ExtResource("3_4rvmm")
+shader_parameter/test = 0.232081
+shader_parameter/tex = SubResource("ViewportTexture_uy7a0")
+
+[node name="Merkabah" type="Node3D"]
+
+[node name="tetra_intersect" parent="." node_paths=PackedStringArray("mesh_inst") instance=ExtResource("1_xvl1a")]
+transform = Transform3D(0.999471, 0, 0, 0, 1, 0, 0, 0, 0.999471, 0, 0, 0)
+script = ExtResource("2_f6ym4")
+mesh_inst = NodePath("bot")
+counter_rotation_rate = 60.0
+update_delay = 0.03
+
+[node name="bot" parent="tetra_intersect" index="0"]
+mesh = SubResource("ArrayMesh_18j8t")
+surface_material_override/0 = SubResource("ShaderMaterial_qq3de")
+
+[node name="tetra_top" parent="tetra_intersect" instance=ExtResource("3_oba1o")]
+transform = Transform3D(-0.866025, 0, -0.5, 0, -1, 0, 0.5, 0, -0.866025, 0, 0.814, 0)
+script = ExtResource("4_4rr8t")
+
+[node name="tetra_bottom" parent="tetra_intersect" instance=ExtResource("3_oba1o")]
+
+[editable path="tetra_intersect"]
